@@ -82,7 +82,7 @@ async function uploadRoute(fastify, options) {
       expireAt,
       files: androidFiles,
       // URL này lát nữa Next.js được deploy lên Vercel sẽ nhận diện
-      downloadUrl: `https://ten-mien-cua-ong.com/s/${sessionId}` 
+      downloadUrl: `https://vinhstudio.site/s/${sessionId}` 
     };
   });
 }
