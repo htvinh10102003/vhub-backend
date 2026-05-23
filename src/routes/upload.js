@@ -17,6 +17,7 @@ async function uploadRoute(fastify, options) {
 
     const androidFiles = [];
     let expiresInMinutes = 60;
+    let userId = null;
 
     const parts = request.parts();
     for await (const part of parts) {
@@ -49,6 +50,9 @@ async function uploadRoute(fastify, options) {
         if (part.fieldname === 'expiresIn') {
           expiresInMinutes = parseInt(part.value) || 60;
         }
+        if (part.fieldname === 'userId') {
+          userId = part.value;
+        }
       }
     }
 
@@ -67,6 +71,7 @@ async function uploadRoute(fastify, options) {
           verification_code: verificationCode, 
           expire_at: expireAt, 
           android_files: androidFiles,
+          user_id: userId,
           web_files: []
         }
       ]);
