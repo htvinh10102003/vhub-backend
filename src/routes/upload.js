@@ -47,6 +47,7 @@ async function uploadRoute(fastify, options) {
           size: formatBytes(fileSize)
         });
       } else {
+        console.log("BACKEND NHẬN FIELD:", part.fieldname, " GIÁ TRỊ:", part.value);
         if (part.fieldname === 'expiresIn') {
           expiresInMinutes = parseInt(part.value) || 60;
         }
