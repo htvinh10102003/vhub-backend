@@ -72,7 +72,7 @@ async function uploadRoute(fastify, options) {
           verification_code: verificationCode, 
           expire_at: expireAt, 
           android_files: androidFiles,
-          user_id: "09b2ee7d-54ba-400b-a888-74458eb48871",
+          user_id: userId || null,
           web_files: []
         }
       ]);
