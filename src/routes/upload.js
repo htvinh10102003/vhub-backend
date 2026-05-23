@@ -72,12 +72,13 @@ async function uploadRoute(fastify, options) {
           verification_code: verificationCode, 
           expire_at: expireAt, 
           android_files: androidFiles,
-          user_id: userId,
+          user_id: "09b2ee7d-54ba-400b-a888-74458eb48871",
           web_files: []
         }
       ]);
 
     if (dbError) {
+      console.error("LỖI SUPABASE INSERT:", dbError);
       fastify.log.error(dbError);
       return reply.code(500).send({ error: 'Lỗi khởi tạo phiên dữ liệu hệ thống!' });
     }
