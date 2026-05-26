@@ -17,6 +17,9 @@ fastify.register(multipart, {
 fastify.register(require('./routes/upload'));
 fastify.register(require('./routes/verify'));
 fastify.register(require('./routes/uploadBack')); 
+fastify.get('/ping', async (request, reply) => {
+  return { status: 'Server vẫn đang thức nha!', time: new Date().toISOString() };
+});
 
 const start = async () => {
   try {
